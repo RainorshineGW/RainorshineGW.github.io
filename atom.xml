@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.assd.xyz/"/>
-  <updated>2018-04-04T09:27:02.826Z</updated>
+  <updated>2018-04-04T10:23:08.976Z</updated>
   <id>http://www.assd.xyz/</id>
   
   <author>
@@ -17,19 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>测试</title>
-    <link href="http://www.assd.xyz/2018/04/04/1/"/>
-    <id>http://www.assd.xyz/2018/04/04/1/</id>
-    <published>2018-04-04T08:59:35.152Z</published>
-    <updated>2018-04-04T09:27:02.826Z</updated>
+    <title>mysql更新和删除一些注意点</title>
+    <link href="http://www.assd.xyz/2018/04/04/2/"/>
+    <id>http://www.assd.xyz/2018/04/04/2/</id>
+    <published>2018-04-04T09:42:53.413Z</published>
+    <updated>2018-04-04T10:23:08.976Z</updated>
     
-    <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;经过两周的调试，从无到有，gitHub上的博客终于搭建起来了，看到如今的成果还是挺开心的，果然是成功不负有心人呐，以后的日子里须要更加的努力！！<br><br><br><img src="./images/preview/preview1.jpg" alt="" title="美不美"></p>]]></content>
+    <content type="html"><![CDATA[<p>当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> a <span class="keyword">SET</span> age=<span class="keyword">SELECT</span> age <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> <span class="string">`name`</span>=<span class="string">'lisi'</span> <span class="keyword">WHERE</span> age&lt;<span class="number">2</span></span><br></pre></td></tr></table></figure></p><p>如要实现上述需求，</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> a <span class="keyword">AS</span> ta <span class="keyword">INNER</span> <span class="keyword">JOIN</span> (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> age = <span class="number">11</span>) <span class="keyword">AS</span> tb <span class="keyword">SET</span> ta.age=tb.age <span class="keyword">WHERE</span> ta.<span class="string">`name`</span>=<span class="string">'zhangsan'</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;经过两周的调试，从无到有，gitHub上的博客终于搭建起来了，看到如今的成果还是挺开心的，果然是成功不负有心人呐，以后的日子里须要更加的努力！！&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;img src=&quot;./images/preview/pr
+        &lt;p&gt;当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法&lt;br&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://www.assd.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mysql" scheme="http://www.assd.xyz/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试</title>
+    <link href="http://www.assd.xyz/2018/04/04/1/"/>
+    <id>http://www.assd.xyz/2018/04/04/1/</id>
+    <published>2018-04-04T08:59:35.152Z</published>
+    <updated>2018-04-04T09:40:40.658Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;经过两周的调试，从无到有，gitHub上的博客终于搭建起来了，看到如今的成果还是挺开心的，果然是成功不负有心人呐，以后的日子里须要更加的努力！！<br><br><br><img src="./images/preview/preview1.jpg" alt="" title="美不美"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&amp;emsp;&amp;emsp;经过两周的调试，从无到有，gitHub上的博客终于搭建起来了，看到如今的成果还是挺开心的，果然是成功不负有心人呐，以后的日子里须要更加的努力！！&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;img src=&quot;./images/preview/preview1.jpg&quot; 
       
     
     </summary>

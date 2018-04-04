@@ -295,6 +295,116 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.assd.xyz/2018/04/04/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gw">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哎呀呀,小拳拳捶你胸口">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/04/2/" itemprop="url">mysql更新和删除一些注意点</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> a <span class="keyword">SET</span> age=<span class="keyword">SELECT</span> age <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> <span class="string">`name`</span>=<span class="string">'lisi'</span> <span class="keyword">WHERE</span> age&lt;<span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>如要实现上述需求，</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> a <span class="keyword">AS</span> ta <span class="keyword">INNER</span> <span class="keyword">JOIN</span> (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> age = <span class="number">11</span>) <span class="keyword">AS</span> tb <span class="keyword">SET</span> ta.age=tb.age <span class="keyword">WHERE</span> ta.<span class="string">`name`</span>=<span class="string">'zhangsan'</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.assd.xyz/2018/04/04/1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -354,7 +464,7 @@
       
         
           
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;经过两周的调试，从无到有，gitHub上的博客终于搭建起来了，看到如今的成果还是挺开心的，果然是成功不负有心人呐，以后的日子里须要更加的努力！！<br><br><br><img src="./images/preview/preview1.jpg" alt="" title="美不美"></p>
+            <p>&emsp;&emsp;经过两周的调试，从无到有，gitHub上的博客终于搭建起来了，看到如今的成果还是挺开心的，果然是成功不负有心人呐，以后的日子里须要更加的努力！！<br><br><br><img src="./images/preview/preview1.jpg" alt="" title="美不美"></p>
 
           
         
@@ -440,7 +550,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -451,7 +561,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -462,7 +572,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -81,7 +81,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -94,13 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="哎呀呀,小拳拳捶你胸口">
-<meta property="og:url" content="http://www.assd.xyz/archives/2018/04/index.html">
+<meta name="description" content="当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法1UPDATE a SET age=SELECT age FROM b WHERE `name`=&apos;lisi&apos; WHERE age&amp;lt;2 如要实现上述需求， 1UPDATE a AS ta INNER JOIN (SELECT * FROM b WHERE age = 11) AS tb SET ta.age=tb">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql更新和删除一些注意点">
+<meta property="og:url" content="http://www.assd.xyz/2018/04/04/2/index.html">
 <meta property="og:site_name" content="哎呀呀,小拳拳捶你胸口">
+<meta property="og:description" content="当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法1UPDATE a SET age=SELECT age FROM b WHERE `name`=&apos;lisi&apos; WHERE age&amp;lt;2 如要实现上述需求， 1UPDATE a AS ta INNER JOIN (SELECT * FROM b WHERE age = 11) AS tb SET ta.age=tb">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-04T10:23:08.976Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="哎呀呀,小拳拳捶你胸口">
+<meta name="twitter:title" content="mysql更新和删除一些注意点">
+<meta name="twitter:description" content="当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法1UPDATE a SET age=SELECT age FROM b WHERE `name`=&apos;lisi&apos; WHERE age&amp;lt;2 如要实现上述需求， 1UPDATE a AS ta INNER JOIN (SELECT * FROM b WHERE age = 11) AS tb SET ta.age=tb">
 
 
 
@@ -130,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://www.assd.xyz/archives/2018/04/"/>
+  <link rel="canonical" href="http://www.assd.xyz/2018/04/04/2/"/>
 
 
 
 
 
-  <title>归档 | 哎呀呀,小拳拳捶你胸口</title>
+  <title>mysql更新和删除一些注意点 | 哎呀呀,小拳拳捶你胸口</title>
   
 
 
@@ -176,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,111 +285,161 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 2 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.assd.xyz/2018/04/04/2/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gw">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哎呀呀,小拳拳捶你胸口">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/04/04/2/" itemprop="url">
-              
-                <span itemprop="name">mysql更新和删除一些注意点</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">mysql更新和删除一些注意点</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-04T17:42:53+08:00"
-              content="2018-04-04" >
-          04-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/04/1/" itemprop="url">
-              
-                <span itemprop="name">测试</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-04T16:59:35+08:00"
-              content="2018-04-04" >
-          04-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> a <span class="keyword">SET</span> age=<span class="keyword">SELECT</span> age <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> <span class="string">`name`</span>=<span class="string">'lisi'</span> <span class="keyword">WHERE</span> age&lt;<span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>如要实现上述需求，</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> a <span class="keyword">AS</span> ta <span class="keyword">INNER</span> <span class="keyword">JOIN</span> (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> age = <span class="number">11</span>) <span class="keyword">AS</span> tb <span class="keyword">SET</span> ta.age=tb.age <span class="keyword">WHERE</span> ta.<span class="string">`name`</span>=<span class="string">'zhangsan'</span></span><br></pre></td></tr></table></figure>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/04/1/" rel="next" title="测试">
+                <i class="fa fa-chevron-left"></i> 测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<!-- <a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a> -->
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -620,6 +675,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
