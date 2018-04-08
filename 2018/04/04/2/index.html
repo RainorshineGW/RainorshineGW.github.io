@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法1UPDATE a SET age=SELECT age FROM b WHERE `name`=&apos;lisi&apos; WHERE age&amp;lt;2 如要实现上述需求， 1UPDATE a AS ta INNER JOIN (SELECT * FROM b WHERE age = 11) AS tb SET ta.age=tb">
+<meta name="description" content="UPDATE当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法:1UPDATE a SET age=SELECT age FROM b WHERE `name`=&apos;lisi&apos; WHERE age&amp;lt;2 报的错为:[Err] 1064 - You have an error in your SQL syntax; check the manual that corr">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql更新和删除一些注意点">
 <meta property="og:url" content="http://www.assd.xyz/2018/04/04/2/index.html">
 <meta property="og:site_name" content="哎呀呀,小拳拳捶你胸口">
-<meta property="og:description" content="当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法1UPDATE a SET age=SELECT age FROM b WHERE `name`=&apos;lisi&apos; WHERE age&amp;lt;2 如要实现上述需求， 1UPDATE a AS ta INNER JOIN (SELECT * FROM b WHERE age = 11) AS tb SET ta.age=tb">
+<meta property="og:description" content="UPDATE当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法:1UPDATE a SET age=SELECT age FROM b WHERE `name`=&apos;lisi&apos; WHERE age&amp;lt;2 报的错为:[Err] 1064 - You have an error in your SQL syntax; check the manual that corr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-04T10:23:08.976Z">
+<meta property="og:updated_time" content="2018-04-08T02:44:01.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql更新和删除一些注意点">
-<meta name="twitter:description" content="当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法1UPDATE a SET age=SELECT age FROM b WHERE `name`=&apos;lisi&apos; WHERE age&amp;lt;2 如要实现上述需求， 1UPDATE a AS ta INNER JOIN (SELECT * FROM b WHERE age = 11) AS tb SET ta.age=tb">
+<meta name="twitter:description" content="UPDATE当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法:1UPDATE a SET age=SELECT age FROM b WHERE `name`=&apos;lisi&apos; WHERE age&amp;lt;2 报的错为:[Err] 1064 - You have an error in your SQL syntax; check the manual that corr">
 
 
 
@@ -354,9 +354,15 @@
       
 
       
-        <p>当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> a <span class="keyword">SET</span> age=<span class="keyword">SELECT</span> age <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> <span class="string">`name`</span>=<span class="string">'lisi'</span> <span class="keyword">WHERE</span> age&lt;<span class="number">2</span></span><br></pre></td></tr></table></figure></p>
-<p>如要实现上述需求，</p>
+        <h3 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h3><p>当update语句中,修改参数的值为实时查询出来的值，会报语法错误，譬如如下语法:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> a <span class="keyword">SET</span> age=<span class="keyword">SELECT</span> age <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> <span class="string">`name`</span>=<span class="string">'lisi'</span> <span class="keyword">WHERE</span> age&lt;<span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<font size="1.5px" color="red"><br>报的错为:[Err] 1064 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘SELECT age FROM b WHERE <code>name</code>=’lisi’ WHERE age&lt;2’ at line 1<br></font>
+
+<p>如要实现上述需求语法则可以这样写，UPDATE的时候连接另外一张表，连接的时候过滤取得我们需要的数据然后可以直接SET a.age = b.age了</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> a <span class="keyword">AS</span> ta <span class="keyword">INNER</span> <span class="keyword">JOIN</span> (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> age = <span class="number">11</span>) <span class="keyword">AS</span> tb <span class="keyword">SET</span> ta.age=tb.age <span class="keyword">WHERE</span> ta.<span class="string">`name`</span>=<span class="string">'zhangsan'</span></span><br></pre></td></tr></table></figure>
+<h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>当删除语句条件采用子查询为条件的话,mysql会报语法错误,<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> a <span class="keyword">WHERE</span> <span class="string">`name`</span> = <span class="keyword">SELECT</span> <span class="string">`name`</span> <span class="keyword">FROM</span> b <span class="keyword">WHERE</span> <span class="string">`name`</span> = <span class="string">'lisi'</span></span><br></pre></td></tr></table></figure></p>
+<p><font size="1.5px" color="red"><br>[Err] 1064 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘SELECT <code>name</code> FROM b WHERE <code>name</code> = ‘lisi’’ at line 1<br></font><br>这是应为mysql不允许在子查询中使用要删除的表</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> ta.* <span class="keyword">FROM</span> a <span class="keyword">as</span> ta <span class="keyword">WHERE</span> <span class="number">1</span>=<span class="number">1</span> <span class="keyword">AND</span> ta.<span class="string">`name`</span> <span class="keyword">in</span> (<span class="keyword">SELECT</span> <span class="string">`name`</span> <span class="keyword">FROM</span> b  <span class="keyword">WHERE</span> <span class="string">`name`</span> = <span class="string">'lisi'</span>)</span><br></pre></td></tr></table></figure>
+<p>此处需要注意,子查询中的表不能使用正在删除的表,如上待删除的a表后面的子查询不能为a表,如果一定要使用a表,语法则改为:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> ta.* <span class="keyword">FROM</span> a <span class="keyword">as</span> ta <span class="keyword">WHERE</span> ta.<span class="string">`name`</span> <span class="keyword">in</span> (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="string">`name`</span> <span class="keyword">FROM</span> a  <span class="keyword">WHERE</span> <span class="string">`name`</span> = <span class="string">'wangwu'</span>) t)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -467,8 +473,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -549,6 +564,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#UPDATE"><span class="nav-number">1.</span> <span class="nav-text">UPDATE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DELETE"><span class="nav-number">2.</span> <span class="nav-text">DELETE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">2.1.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
