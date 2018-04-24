@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.assd.xyz/"/>
-  <updated>2018-04-08T02:44:01.009Z</updated>
+  <updated>2018-04-24T02:20:39.790Z</updated>
   <id>http://www.assd.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java中的值传递和引用传递</title>
+    <link href="http://www.assd.xyz/2018/04/24/3/"/>
+    <id>http://www.assd.xyz/2018/04/24/3/</id>
+    <published>2018-04-24T01:45:07.627Z</published>
+    <updated>2018-04-24T02:20:39.790Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h5><p>栈是运行时关键，堆是存储的单位。即栈是解决程序运行的问题，或处理数据的逻辑；堆则是解决数据存储<br>线程：一个线程会对应一个线程栈，不同的逻辑需要不同的栈。堆则是共享的。栈是运行单位，因此里面存储的信息都跟当前线程有关，包括局部变量、程序运行状态、方法值返回等；堆指负责存储数据。</p><h5 id="堆存什么，栈存什么？"><a href="#堆存什么，栈存什么？" class="headerlink" title="堆存什么，栈存什么？"></a>堆存什么，栈存什么？</h5><p>堆中是对象，栈中是基本数据类型和堆中对象的引用值。堆中对象的大小是动态变化的。但是在栈中一个对应着堆中对象的引用只占4btye。</p><h5 id="为什么不把基本类型放堆中？"><a href="#为什么不把基本类型放堆中？" class="headerlink" title="为什么不把基本类型放堆中？"></a>为什么不把基本类型放堆中？</h5><p>基本类型只占1~8字节，长度固定，栈可以满足。放入堆中会浪费空间。</p><h5 id="Java中传值到底传的是值还是引用？"><a href="#Java中传值到底传的是值还是引用？" class="headerlink" title="Java中传值到底传的是值还是引用？"></a>Java中传值到底传的是值还是引用？</h5><p>程序都是在栈中执行的，所以传递的时候不会传对象本身进入栈。在运行栈中，基本类型和引用类型的处理都是一样的——传值。所以当传引用的方法调用实际上是传引用值。<br>再确切的说：站在栈中的程序的角度来看，<font color="red">传基本类型时，值是拷贝的，只要不返回值，就不会被修改。传引用类型的时候，程序获得的是引用的值，程序在解析这个引用值时会根据引用值中标注对象的地址的信息去堆中找到那一个对象，再操作对象的数据，所以就算不返回值时，对象的值也会被修改</font>。<br>栈是程序运行最根本的东西，程序可以没有堆，但是要有栈。堆只是供多个栈使用的共享内存。这也使得Java的垃圾回收机制成为可能。栈的大小通过-Xss来设置。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;堆和栈&quot;&gt;&lt;a href=&quot;#堆和栈&quot; class=&quot;headerlink&quot; title=&quot;堆和栈&quot;&gt;&lt;/a&gt;堆和栈&lt;/h5&gt;&lt;p&gt;栈是运行时关键，堆是存储的单位。即栈是解决程序运行的问题，或处理数据的逻辑；堆则是解决数据存储&lt;br&gt;线程：一个线程会对应一个线程栈
+      
+    
+    </summary>
+    
+      <category term="java" scheme="http://www.assd.xyz/categories/java/"/>
+    
+    
+      <category term="基础" scheme="http://www.assd.xyz/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql更新和删除一些注意点</title>

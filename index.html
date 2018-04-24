@@ -295,6 +295,117 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.assd.xyz/2018/04/24/3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gw">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哎呀呀,小拳拳捶你胸口">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/24/3/" itemprop="url">java中的值传递和引用传递</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h5><p>栈是运行时关键，堆是存储的单位。即栈是解决程序运行的问题，或处理数据的逻辑；堆则是解决数据存储<br>线程：一个线程会对应一个线程栈，不同的逻辑需要不同的栈。堆则是共享的。栈是运行单位，因此里面存储的信息都跟当前线程有关，包括局部变量、程序运行状态、方法值返回等；堆指负责存储数据。</p>
+<h5 id="堆存什么，栈存什么？"><a href="#堆存什么，栈存什么？" class="headerlink" title="堆存什么，栈存什么？"></a>堆存什么，栈存什么？</h5><p>堆中是对象，栈中是基本数据类型和堆中对象的引用值。堆中对象的大小是动态变化的。但是在栈中一个对应着堆中对象的引用只占4btye。</p>
+<h5 id="为什么不把基本类型放堆中？"><a href="#为什么不把基本类型放堆中？" class="headerlink" title="为什么不把基本类型放堆中？"></a>为什么不把基本类型放堆中？</h5><p>基本类型只占1~8字节，长度固定，栈可以满足。放入堆中会浪费空间。</p>
+<h5 id="Java中传值到底传的是值还是引用？"><a href="#Java中传值到底传的是值还是引用？" class="headerlink" title="Java中传值到底传的是值还是引用？"></a>Java中传值到底传的是值还是引用？</h5><p>程序都是在栈中执行的，所以传递的时候不会传对象本身进入栈。在运行栈中，基本类型和引用类型的处理都是一样的——传值。所以当传引用的方法调用实际上是传引用值。<br>再确切的说：站在栈中的程序的角度来看，<font color="red">传基本类型时，值是拷贝的，只要不返回值，就不会被修改。传引用类型的时候，程序获得的是引用的值，程序在解析这个引用值时会根据引用值中标注对象的地址的信息去堆中找到那一个对象，再操作对象的数据，所以就算不返回值时，对象的值也会被修改</font>。<br>栈是程序运行最根本的东西，程序可以没有堆，但是要有栈。堆只是供多个栈使用的共享内存。这也使得Java的垃圾回收机制成为可能。栈的大小通过-Xss来设置。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.assd.xyz/2018/04/04/2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -556,7 +667,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -567,7 +678,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -578,7 +689,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
